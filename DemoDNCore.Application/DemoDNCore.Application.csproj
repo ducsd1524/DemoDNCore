@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DemoDNCore.Data.EF\DemoDNCore.Data.EF.csproj" />
+    <ProjectReference Include="..\DemoDNCore.Data\DemoDNCore.Data.csproj" />
+    <ProjectReference Include="..\DemoDNCore.Utilities\DemoDNCore.Utilities.csproj" />
+  </ItemGroup>
+
+</Project>
