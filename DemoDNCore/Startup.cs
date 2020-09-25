@@ -17,6 +17,8 @@ using DemoDNCore.Data.IRepositories;
 using DemoDNCore.Data.EF.Repositories;
 using DemoDNCore.Application.Interfaces;
 using DemoDNCore.Application.Implementation;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Serialization;
 
 namespace DemoDNCore
 {
@@ -33,7 +35,7 @@ namespace DemoDNCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlServer(("Server=DESKTOP-0KLM72V\\SD;Initial Catalog=DemoDNCore;Integrated Security=True"),
+                options.UseSqlServer(("Server=localhost\\SQLEXPRESS;Initial Catalog=DemoDNCore;Integrated Security=True"),
                 o => o.MigrationsAssembly("DemoDNCore.Data.EF")));
 
             services.AddIdentity<AppUser, AppRole>()
@@ -72,12 +74,13 @@ namespace DemoDNCore
 
             services.AddTransient<IProductCategoryService, ProductCategoryService>();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().AddJsonOptions(options=>options.SerializerSettings.ContractResolver = new DefaultContractResolver());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env,ILoggerFactory loggerFactory)
         {
+            loggerFactory.CreateLogger("Logs/sd-{Date}.txt");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
