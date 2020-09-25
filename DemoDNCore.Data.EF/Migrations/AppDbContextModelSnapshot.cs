@@ -76,8 +76,7 @@ namespace DemoDNCore.Data.EF.Migrations
                     b.Property<string>("Name")
                         .HasMaxLength(250);
 
-                    b.Property<string>("PageId")
-                        .HasMaxLength(20);
+                    b.Property<string>("PageId");
 
                     b.HasKey("Id");
 
@@ -121,19 +120,15 @@ namespace DemoDNCore.Data.EF.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("AnnouncementId")
-                        .IsRequired()
-                        .HasMaxLength(128);
+                        .IsRequired();
 
                     b.Property<bool?>("HasRead");
 
-                    b.Property<Guid>("UserId")
-                        .HasMaxLength(450);
+                    b.Property<Guid>("UserId");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AnnouncementId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("AnnouncementUsers");
                 });
@@ -532,8 +527,7 @@ namespace DemoDNCore.Data.EF.Migrations
                     b.Property<bool>("CanUpdate");
 
                     b.Property<string>("FunctionId")
-                        .IsRequired()
-                        .HasMaxLength(128);
+                        .IsRequired();
 
                     b.Property<Guid>("RoleId")
                         .HasMaxLength(450);
@@ -938,11 +932,6 @@ namespace DemoDNCore.Data.EF.Migrations
                     b.HasOne("DemoDNCore.Data.Entities.Announcement", "Announcement")
                         .WithMany("AnnouncementUsers")
                         .HasForeignKey("AnnouncementId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("DemoDNCore.Data.Entities.AppUser", "AppUser")
-                        .WithMany()
-                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

@@ -118,7 +118,7 @@ namespace DemoDNCore.Data.EF
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json").Build();
             var builder = new DbContextOptionsBuilder<AppDbContext>();
-            var connectionString = "Server=(local)\\MSSQLSERVER;Database=DemoDNCore;Trusted_Connection=True";
+            var connectionString = "Server=DESKTOP-0KLM72V\\SD;Initial Catalog=DemoDNCore;Integrated Security=True";
             builder.UseSqlServer(connectionString);
             return new AppDbContext(builder.Options);
         }

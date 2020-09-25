@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using DemoDNCore.Data.EF.Extensions;
 using DemoDNCore.Data.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace DemoDNCore.Data.EF.Configurations
 {
