@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DemoDNCore.Application.ViewModels.Product;
+using DemoDNCore.Application.ViewModels.System;
 using DemoDNCore.Data.Entities;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace DemoDNCore.Application.AutoMapper
         public DomainToViewModelMappingProfile()
         {
             CreateMap<ProductCategory, ProductCategoryViewModel>();
+            CreateMap<Function, FunctionViewModel>();
         }
     }
 }
