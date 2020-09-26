@@ -1,5 +1,5 @@
 var sd = {
-    config: {
+    configs: {
         pageSize: 10,
         pageIndex: 1
     },
@@ -112,11 +112,10 @@ var sd = {
         else
             return '<span class="badge bg-red">Khoá</span>';
     },
-    formatNmber: function (number, precision) {
+    formatNumber: function (number, precision) {
         if (!isFinite(number)) {
             return number.toString();
         }
-
         var a = number.toFixed(precision).split('.');
         a[0] = a[0].replace(/\d(?=(\d{3})+$)/g, '$&,');
         return a.join('.');

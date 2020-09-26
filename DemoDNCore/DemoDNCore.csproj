@@ -203,13 +203,47 @@
     <None Include="wwwroot\lib\gentelella\vendors\parsleyjs\bower_components\uwidget\LICENSE" />
     <None Include="wwwroot\lib\gentelella\vendors\parsleyjs\bower_components\uwidget\uwidget.js" />
     <None Include="wwwroot\lib\gentelella\vendors\parsleyjs\bower_components\uwidget\uwidget.less" />
+    <None Include="wwwroot\lib\mustache\CHANGELOG.md" />
+    <None Include="wwwroot\lib\mustache\hooks\install-hooks.sh" />
+    <None Include="wwwroot\lib\mustache\hooks\pre-commit" />
+    <None Include="wwwroot\lib\mustache\LICENSE" />
+    <None Include="wwwroot\lib\mustache\MIGRATING.md" />
+    <None Include="wwwroot\lib\mustache\mustache.js" />
+    <None Include="wwwroot\lib\mustache\mustache.js.nuspec" />
+    <None Include="wwwroot\lib\mustache\mustache.min.js" />
+    <None Include="wwwroot\lib\mustache\Rakefile" />
+    <None Include="wwwroot\lib\mustache\README.md" />
+    <None Include="wwwroot\lib\mustache\spec\_files\bom_as_whitespace.js" />
+    <None Include="wwwroot\lib\mustache\spec\_files\bom_as_whitespace.mustache" />
+    <None Include="wwwroot\lib\mustache\wrappers\dojo\mustache.js.post" />
+    <None Include="wwwroot\lib\mustache\wrappers\dojo\mustache.js.pre" />
+    <None Include="wwwroot\lib\mustache\wrappers\jquery\mustache.js.post" />
+    <None Include="wwwroot\lib\mustache\wrappers\jquery\mustache.js.pre" />
+    <None Include="wwwroot\lib\mustache\wrappers\mootools\mustache.js.post" />
+    <None Include="wwwroot\lib\mustache\wrappers\mootools\mustache.js.pre" />
+    <None Include="wwwroot\lib\mustache\wrappers\qooxdoo\mustache.js.post" />
+    <None Include="wwwroot\lib\mustache\wrappers\qooxdoo\mustache.js.pre" />
+    <None Include="wwwroot\lib\mustache\wrappers\yui3\mustache.js.post" />
+    <None Include="wwwroot\lib\mustache\wrappers\yui3\mustache.js.pre" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.1.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="2.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.7" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.3" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.1.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.14">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />
     <PackageReference Include="Serilog.Extensions.Logging" Version="1.0.0" />
   </ItemGroup>
 
