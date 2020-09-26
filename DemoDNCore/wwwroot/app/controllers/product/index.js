@@ -1,5 +1,6 @@
 ﻿var productController = function () {
     this.initialize = function () {
+        loadDataCategory();
         loadData();
         registerEvent();
     }
@@ -9,7 +10,19 @@
             sd.configs.pageSize = $(this).val();
             sd.configs.pageIndex = 1;
             loadData(true);
-        })
+        });
+        $('#btnSearch').on('click', function () {
+            loadData();
+        });
+        $('#txtKeyword').on('keypress', function (e) {
+            console.log(e);
+            if (e.which === 13) {
+                loadData();
+            }
+        });
+        $('#ddlCategorySearch').on('change', function () {
+            loadData();
+        });
     }
 
     function formatNumber(number, precision) {
@@ -27,7 +40,7 @@
         $.ajax({
             type: 'GET',
             data: {
-                categoryId: null,
+                categoryId: $('#ddlCategorySearch').val(),
                 keyword: $('#txtKeyword').val(),
                 page: sd.configs.pageIndex,
                 pageSize: sd.configs.pageSize
@@ -54,6 +67,25 @@
                         loadData();
                     }, isPageChanged);
                 });
+            },
+            error: function (status) {
+                console.log(status);
+                sd.notify('Cannot loading data', 'error');
+            }
+        });
+    }
+
+    function loadDataCategory() {
+        $.ajax({
+            type: 'GET',
+            url: '/admin/product/GetAllCategories',
+            dataType: "json",
+            success: function (res) {
+                var render = "<option value=''>--Select Category--</option>";
+                $.each(res, function (i, item) {
+                    render += "<option value='" + item.Id + "'>'" + item.Name + "'</option>"
+                });
+                $('#ddlCategorySearch').html(render);
             },
             error: function (status) {
                 console.log(status);
