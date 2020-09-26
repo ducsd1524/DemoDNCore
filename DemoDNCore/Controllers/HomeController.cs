@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using DemoDNCore.Extensions;
 using DemoDNCore.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,6 +13,7 @@ namespace DemoDNCore.Controllers
     {
         public IActionResult Index()
         {
+            var email = User.GetSpecificClaim("Email");
             return View();
         }
 

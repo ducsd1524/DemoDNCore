@@ -19,6 +19,7 @@ using DemoDNCore.Application.Interfaces;
 using DemoDNCore.Application.Implementation;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
+using DemoDNCore.Helpers;
 
 namespace DemoDNCore
 {
@@ -69,6 +70,8 @@ namespace DemoDNCore
             services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(), sp.GetService));
 
             services.AddTransient<DbInitializer>();
+
+            services.AddScoped<IUserClaimsPrincipalFactory<AppUser>, CustomClaimsPrincipalFactory>();
 
             services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
 

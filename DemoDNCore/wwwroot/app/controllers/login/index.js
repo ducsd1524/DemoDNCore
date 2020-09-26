@@ -7,13 +7,13 @@ var loginController = function () {
         $('#frmLogin').validate({
             errorClass: 'red',
             ignore: [],
-            lang: 'vi',
+            lang: 'en',
             rules: {
-                UserName: {
-                    requried: true
+                userName: {
+                    required: true
                 },
                 password: {
-                    requried: true
+                    required: true
                 }
             }
         })
@@ -40,7 +40,7 @@ var loginController = function () {
                 if (res.Success) {
                     window.location.href = "/Admin/Home/Index";
                 } else {
-                    sd.notify('Đăng nhập không đúng', 'error');
+                    sd.notify('Login failed', 'error');
                 }
             }
         })
