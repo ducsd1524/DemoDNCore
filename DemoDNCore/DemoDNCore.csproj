@@ -225,6 +225,11 @@
     <None Include="wwwroot\lib\mustache\wrappers\qooxdoo\mustache.js.pre" />
     <None Include="wwwroot\lib\mustache\wrappers\yui3\mustache.js.post" />
     <None Include="wwwroot\lib\mustache\wrappers\yui3\mustache.js.pre" />
+    <None Include="wwwroot\lib\twbs-pagination\Gruntfile.js" />
+    <None Include="wwwroot\lib\twbs-pagination\jquery.twbsPagination.js" />
+    <None Include="wwwroot\lib\twbs-pagination\jquery.twbsPagination.min.js" />
+    <None Include="wwwroot\lib\twbs-pagination\LICENSE" />
+    <None Include="wwwroot\lib\twbs-pagination\README.md" />
   </ItemGroup>
 
   <ItemGroup>
