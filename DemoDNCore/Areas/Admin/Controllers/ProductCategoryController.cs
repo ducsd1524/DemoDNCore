@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DemoDNCore.Application.Interfaces;
+using DemoDNCore.Application.ViewModels.Product;
+using DemoDNCore.Utilities.Helpers;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace DemoDNCore.Areas.Admin.Controllers
 {
@@ -25,6 +28,37 @@ namespace DemoDNCore.Areas.Admin.Controllers
         {
             var model = _productCategoryService.GetAll();
             return new OkObjectResult(model);
+        }
+
+        [HttpGet]
+        public IActionResult GetById(int Id)
+        {
+            var model = _productCategoryService.GetById(Id);
+            return new OkObjectResult(model);
+        }
+
+        [HttpPost]
+        public IActionResult SaveEntity(ProductCategoryViewModel productVm)
+        {
+            if (!ModelState.IsValid)
+            {
+                IEnumerable<ModelError> allErrors = ModelState.Values.SelectMany(v => v.Errors);
+                return new BadRequestObjectResult(allErrors);
+            }
+            else
+            {
+                productVm.SeoAlias = TextHelper.ToUnsignString(productVm.Name);
+                if (productVm.Id == 0)
+                {
+                    _productCategoryService.Add(productVm);
+                }
+                else
+                {
+                    _productCategoryService.Update(productVm);
+                }
+                _productCategoryService.Save();
+                return new OkObjectResult(productVm);
+            }
         }
 
         [HttpPost]
